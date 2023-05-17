@@ -22,6 +22,9 @@ N5 = N/4
 
 device  = sys.argv[1]
 release = sys.argv[2]
+
+print(device)
+
 # Load the data
 data = np.loadtxt(f"../data/{device}/patch_history", dtype=str)
 
@@ -85,6 +88,9 @@ for key in sorted(adup.keys()):
 x_array, y_array = [], []
 # Loop over the data
 for i, d in enumerate(data):
+    if i > N:
+        break
+
     last_aup_date = dt.datetime.strptime(adup[latest_android_version]  , "%Y-%m-%d").date()
     next_aup_date = dt.datetime.strptime(adup[latest_android_version+1], "%Y-%m-%d").date() if latest_android_version+1 in adup.keys() else None
 
@@ -139,6 +145,9 @@ plt.plot([-1, N], [120]*2, color='darkorchid', linestyle='--', linewidth=1, zord
 for i in range(Ny):
     plt.plot([i*365]*2, [0, 150], color='0.6', linestyle='-.', linewidth=1, zorder=0)
 
+# Plot the today indicator
+plt.plot([(dt.date.today()-release_date).days]*2, [0, 150], color='0', linestyle=':', linewidth=1, zorder=0)
+
 # Plot some invisible lines for the legend label
 plt.plot(-100, 500, color='mediumseagreen', label=r'$t \leq 30\,\mathrm{days}$')
 plt.plot(-100, 500, color='darkorange', label=r'$30 < t \leq 60\,\mathrm{days}$')
@@ -149,7 +158,7 @@ plt.plot(-100, 500, color='darkorchid', label=r'$t > 90\,\mathrm{days}$')
 plt.fill_between([0, offset], 0, 150, facecolor="white", hatch="\\", edgecolor="0.9")
 
 # Plot the legend
-plt.legend(fontsize=9, loc='upper right', edgecolor='none', framealpha=1)
+plt.legend(fontsize=9, loc='upper right', edgecolor='black', framealpha=0.8)
 
 # Plot the average age of the security patch
 plt.text(0.1*N5, 135, r'$\diameter = ' + mean_delta + r"\,\mathrm{days}$", verticalalignment='center')
