@@ -1,3 +1,6 @@
+# Current results
+![results](https://github.com/hep-mh/android-patch-logger/blob/main/plots/all.png)
+
 # Setup
 
 - Create a folder named ``.macrodroid`` with a file called ``patch_history`` in the home directory of your Android device.
