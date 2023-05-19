@@ -8,4 +8,6 @@ python3 plot_patch_history.py Samsung-Galaxy-Tab-S8+  patch_history 2022-02-22
 rm -rf all.pdf comparison.pdf
 pdfjam *.pdf --nup 3x2 --landscape --outfile all.pdf
 
+convert all.pdf all.png
+
 #python3 plot_comparison.py
