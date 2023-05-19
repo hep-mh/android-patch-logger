@@ -7,7 +7,7 @@ import sys
 
 input_file = sys.argv[1]
 # -->
-output_file = input_file + "_filled"
+output_file = input_file
 
 data = np.loadtxt(input_file, dtype=str)
 

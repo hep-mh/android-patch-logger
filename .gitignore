@@ -1,0 +1,5 @@
+*.pyc
+
+**/mean_patch
+
+**~
