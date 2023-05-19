@@ -163,7 +163,7 @@ ymv_array = mavg(ymv_array, n=margin)
 # -->
 plt.plot(xmv_array, ymv_array, color='black')
 
-np.savetxt(f'../data/{device}/mean_patch', np.column_stack([xmv_array, ymv_array]))
+#np.savetxt(f'../data/{device}/mean_patch', np.column_stack([xmv_array, ymv_array]))
 
 x0 = margin + 1
 
